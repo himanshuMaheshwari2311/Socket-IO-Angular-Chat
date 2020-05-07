@@ -20,16 +20,16 @@ export class AppComponent implements OnInit {
   }
 
   sendMessage() {
-    this.chatService.sendMessage(this.message);
+    this.chatService.sendMessage('Himanshu', this.message);
     this.message = '';
   }
 
   ngOnInit() {
     this.chatService
-      .getMessages().pipe(distinctUntilChanged()).pipe(filter((message: string) => message.trim().length > 0))
+      .getMessages().pipe(distinctUntilChanged()).pipe(filter((message: string) => message.length > 0))
       .pipe(throttleTime(1000))
       .pipe(skipWhile((message) => message !== this.secretCode))
-      .pipe(scan((acc , message, index) =>
+      .pipe(scan((acc, message, index) =>
         message + index + 1
         , 1))
       .subscribe((message: string) => {
