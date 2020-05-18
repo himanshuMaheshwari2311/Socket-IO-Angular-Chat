@@ -1,0 +1,34 @@
+.container {
+    max-width: 65vw;
+    max-height: 75vh;
+    justify-content: center;
+    margin: auto;
+}
+
+.chat-list {
+    width: 100%;
+    height: 65vh;
+    margin: 5px;
+}
+
+.chat-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 65vh;
+    margin: 5px;
+}
+
+.chat-card-content {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+.mat-card-footer {
+    flex-shrink: 0;
+}
+
+.chat-header-avatar {
+    background-image: url('https://picsum.photos/seed/picsum/200');
+    background-size: cover;
+}

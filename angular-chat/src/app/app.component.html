@@ -1,6 +1,32 @@
-<div *ngFor="let message of messages">
-  {{message}}
-</div>
+<div style="justify-content: center;">
+    <mat-grid-list class='container' cols="4">
+        <mat-grid-tile class='chat-list' rowspan="1" colspan="1">
+            <mat-card class='chat-list'>
+                <mat-card-title>Chat List</mat-card-title>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile class='chat-card' rowspan="1" colspan="3">
+            <mat-card class='chat-card'>
+                <mat-card-header>
+                    <div mat-card-avatar class="chat-header-avatar"></div>
+                    <mat-card-title>Himanshu</mat-card-title>
+                    <mat-card-subtitle>Mentor</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class='chat-card-content'>
+                    <div>
+                        Chat List
+                    </div>
+                </mat-card-content>
+                <!-- <mat-card-footer class='chat-card-footer'>
+                </mat-card-footer> -->
+                <mat-card-actions>
+                    <mat-form-field appearance="fill">
+                        <input matInput>
+                    </mat-form-field>
+                    <button mat-raised-button type="submit" color="primary">Send</button>
+                </mat-card-actions>
 
-<input [(ngModel)]="message" (keyup)="$event.keyCode == 13 && sendMessage()" />
-<button (click)="sendMessage()">Send</button>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
