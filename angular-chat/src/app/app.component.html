@@ -2,7 +2,18 @@
     <mat-grid-list class='container' cols="4">
         <mat-grid-tile class='chat-list' rowspan="1" colspan="1">
             <mat-card class='chat-list'>
-                <mat-card-title>Chat List</mat-card-title>
+                <mat-card-header>
+                    <mat-card-title>Chat List</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-card>
+                        <mat-card-header style="font-weight: 24pt;">
+                            <div mat-card-avatar class="chat-header-avatar"></div>
+                            <mat-card-title>Himanshu</mat-card-title>
+                            <mat-card-subtitle>Mentor</mat-card-subtitle>
+                        </mat-card-header>
+                    </mat-card>
+                </mat-card-content>
             </mat-card>
         </mat-grid-tile>
         <mat-grid-tile class='chat-card' rowspan="1" colspan="3">
@@ -12,18 +23,15 @@
                     <mat-card-title>Himanshu</mat-card-title>
                     <mat-card-subtitle>Mentor</mat-card-subtitle>
                 </mat-card-header>
+                <mat-divider style="margin: 12px 0px; margin-top: 0px; position: relative;"></mat-divider>
                 <mat-card-content class='chat-card-content'>
-                    <div>
-                        Chat List
-                    </div>
+
                 </mat-card-content>
-                <!-- <mat-card-footer class='chat-card-footer'>
-                </mat-card-footer> -->
-                <mat-card-actions>
-                    <mat-form-field appearance="fill">
-                        <input matInput>
+                <mat-card-actions class='chat-card-actions'>
+                    <mat-form-field appearance="fill" class='chat-card-input'>
+                        <input matInput autocomplete="off">
                     </mat-form-field>
-                    <button mat-raised-button type="submit" color="primary">Send</button>
+                    <button mat-raised-button type="submit" color="primary" class='chat-card-send'>Send</button>
                 </mat-card-actions>
 
             </mat-card>

@@ -24,11 +24,24 @@
     overflow: auto;
 }
 
-.mat-card-footer {
-    flex-shrink: 0;
+.chat-card-actions {
+    display: flex;
+    height: 46px;
+}
+
+.chat-card-input {
+    flex-grow: 1;
+}
+
+.chat-card-send {
+    width: 15%;
 }
 
 .chat-header-avatar {
     background-image: url('https://picsum.photos/seed/picsum/200');
     background-size: cover;
+}
+
+.chat-list-item {
+    display: inline-block;
 }
