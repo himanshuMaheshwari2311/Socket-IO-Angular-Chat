@@ -42,6 +42,16 @@
     background-size: cover;
 }
 
+.chat-list-avatar {
+    background-image: url('https://picsum.photos/seed/picsum/70');
+    background-size: cover;
+}
+
 .chat-list-item {
     display: inline-block;
+}
+
+.mat-list-item-content {
+    padding: 0 !important;
+    margin-left: -16px;
 }

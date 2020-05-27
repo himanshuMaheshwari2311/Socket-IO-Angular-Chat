@@ -11,7 +11,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-// import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule, MatIcon } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { MatInputModule } from '@angular/material/input';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    // MatListModule
+    MatTableModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [ChatService],
   bootstrap: [AppComponent]

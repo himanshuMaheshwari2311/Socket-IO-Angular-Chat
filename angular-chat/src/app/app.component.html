@@ -5,14 +5,22 @@
                 <mat-card-header>
                     <mat-card-title>Chat List</mat-card-title>
                 </mat-card-header>
+                <mat-divider></mat-divider>
                 <mat-card-content>
-                    <mat-card>
-                        <mat-card-header style="font-weight: 24pt;">
-                            <div mat-card-avatar class="chat-header-avatar"></div>
-                            <mat-card-title>Himanshu</mat-card-title>
-                            <mat-card-subtitle>Mentor</mat-card-subtitle>
-                        </mat-card-header>
-                    </mat-card>
+                    <mat-list>
+                        <mat-list-item class="mat-list-item-content">
+                            <div mat-list-icon class="chat-list-avatar"></div>
+                            <div mat-line>Rohit Bhaskar</div>
+                            <div mat-line style="font-size: 9pt; padding-top: 2px;">Hey!</div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item class="mat-list-item-content">
+                            <div mat-list-icon class="chat-list-avatar"></div>
+                            <div mat-line>Tanay Shah</div>
+                            <div mat-line style="font-size: 9pt; padding-top: 2px;">Frappe is up!</div>
+                        </mat-list-item>
+                        <mat-divider></mat-divider>
+                    </mat-list>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>
@@ -31,7 +39,7 @@
                     <mat-form-field appearance="fill" class='chat-card-input'>
                         <input matInput autocomplete="off">
                     </mat-form-field>
-                    <button mat-raised-button type="submit" color="primary" class='chat-card-send'>Send</button>
+                    <button mat-raised-button type="submit" color="primary" class='chat-card-send' (click)='callChatService()'>Send</button>
                 </mat-card-actions>
 
             </mat-card>

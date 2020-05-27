@@ -14,6 +14,12 @@ export class ChatService {
         this.socket.emit('private message', from, message);
     }
 
+    public testApi() {
+        console.log('sending to api');
+        this.socket.emit('frappe.chat.room:subscribe');
+        // this.socket.on();
+    }
+
     public getMessages = () => {
         return Observable.create((observer) => {
             this.socket.on('this', (message) => {

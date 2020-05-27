@@ -24,18 +24,11 @@ export class AppComponent implements OnInit {
     this.message = '';
   }
 
+  callChatService() {
+    this.chatService.testApi();
+  }
+
+
   ngOnInit() {
-    this.chatService
-      .getMessages().pipe(distinctUntilChanged()).pipe(filter((message: string) => message.length > 0))
-      .pipe(throttleTime(1000))
-      .pipe(skipWhile((message) => message !== this.secretCode))
-      .pipe(scan((acc, message, index) =>
-        message + index + 1
-        , 1))
-      .subscribe((message: string) => {
-        const currentTime = moment().format('hh:mm:ss a');
-        const messageWithTimestamp = `${currentTime}: ${message}`;
-        this.messages.push(messageWithTimestamp);
-      });
   }
 }
