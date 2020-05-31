@@ -1,47 +1,66 @@
 <div style="justify-content: center;">
-    <mat-grid-list class='container' cols="4">
-        <mat-grid-tile class='chat-list' rowspan="1" colspan="1">
+    <mat-grid-list class='container' cols="7">
+        <mat-grid-tile class='chat-card' rowspan="1" colspan="5">
+            <mat-card class='chat-card' *ngIf="isReciever()">
+                <mat-card-header>
+                    <div mat-card-avatar class="chat-header-avatar"></div>
+                    <mat-card-title>{{ receiver }}</mat-card-title>
+                    <mat-card-subtitle>{{ receiverTitle }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-divider style="margin: 12px 0px; margin-top: 0px; position: relative;"></mat-divider>
+                <mat-card-content class='chat-card-content' #chatContainer>
+                    <mat-list class="chat-message-list" *ngFor="let message of chatMessages">
+                        <mat-list-item class="chat-message" *ngIf="isUser(message.author)">
+                            <p class="timestamp">{{ message.timestamp }}</p>
+                            <div style="display: flex; flex:1; flex-direction: row-reverse; align-items: center;">
+                                <div mat-list-icon class="chat-list-avatar" style="margin-left: 5px"></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="chat-user-name">{{ message.author }}</p>
+                                    <p class="chat-user-message">{{ message.message }}</p>
+                                </div>
+                            </div>
+                        </mat-list-item>
+                        <mat-list-item class="chat-message" *ngIf="!isUser(message.author)">
+                            <div style="display: flex; flex-direction: row; align-items: center;">
+                                <div mat-list-icon class="chat-list-avatar" style="margin-right: 5px"></div>
+                                <div style="display: flex; flex-direction: column;">
+                                    <p class="chat-user-name" style="text-align: left;">{{ message.author }}</p>
+                                    <p class="chat-user-message">{{ message.message }}</p>
+                                </div>
+                            </div>
+                            <span style="flex: 1 1 auto;"></span>
+                            <p class="timestamp" style="right: 18px">{{ message.timestamp }}</p>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+                <mat-card-actions class='chat-card-actions'>
+                    <mat-form-field appearance="fill" class='chat-card-input'>
+                        <input matInput autocomplete="off" style="font-size: 11pt;" #currentMessage>
+                    </mat-form-field>
+                    <button mat-raised-button type="submit" color="primary" class='chat-card-send' (click)='sendMessage()'>Send</button>
+                </mat-card-actions>
+            </mat-card>
+            <mat-card class="chat-card" *ngIf="!isReciever()">
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile class='chat-list' rowspan="1" colspan="2">
             <mat-card class='chat-list'>
                 <mat-card-header>
                     <mat-card-title>Chat List</mat-card-title>
                 </mat-card-header>
                 <mat-divider></mat-divider>
                 <mat-card-content>
-                    <mat-list>
-                        <mat-list-item class="mat-list-item-content">
-                            <div mat-list-icon class="chat-list-avatar"></div>
-                            <div mat-line>Rohit Bhaskar</div>
-                            <div mat-line style="font-size: 9pt; padding-top: 2px;">Hey!</div>
-                        </mat-list-item>
-                        <mat-divider></mat-divider>
-                        <mat-list-item class="mat-list-item-content">
-                            <div mat-list-icon class="chat-list-avatar"></div>
-                            <div mat-line>Tanay Shah</div>
-                            <div mat-line style="font-size: 9pt; padding-top: 2px;">Frappe is up!</div>
+                    <mat-list *ngFor="let listItem of chatListItem">
+                        <mat-list-item class="mat-list-item-content" (click)="loadChat(listItem.name)">
+                            <div mat-list-icon class="chat-list-avatar" style="margin-right: 5px"></div>
+                            <div style="display: flex; flex-direction: column;">
+                                <p class="chat-list-user-name">{{ listItem.name }}</p>
+                                <p class="chat-user-message"> {{ listItem.lastMessage }} </p>
+                            </div>
                         </mat-list-item>
                         <mat-divider></mat-divider>
                     </mat-list>
                 </mat-card-content>
-            </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile class='chat-card' rowspan="1" colspan="3">
-            <mat-card class='chat-card'>
-                <mat-card-header>
-                    <div mat-card-avatar class="chat-header-avatar"></div>
-                    <mat-card-title>Himanshu</mat-card-title>
-                    <mat-card-subtitle>Mentor</mat-card-subtitle>
-                </mat-card-header>
-                <mat-divider style="margin: 12px 0px; margin-top: 0px; position: relative;"></mat-divider>
-                <mat-card-content class='chat-card-content'>
-
-                </mat-card-content>
-                <mat-card-actions class='chat-card-actions'>
-                    <mat-form-field appearance="fill" class='chat-card-input'>
-                        <input matInput autocomplete="off">
-                    </mat-form-field>
-                    <button mat-raised-button type="submit" color="primary" class='chat-card-send' (click)='callChatService()'>Send</button>
-                </mat-card-actions>
-
             </mat-card>
         </mat-grid-tile>
     </mat-grid-list>
